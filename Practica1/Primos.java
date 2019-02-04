@@ -15,7 +15,7 @@ public class Primos {
 	}
 	
 	public String toString(){
-		return "Primos hasta " + max + " = " + primos;
+		return "Primos hasta " + max + ": " + primos;
 	}
 	
 	public boolean esPrimo(int n){
@@ -73,7 +73,7 @@ public class Primos {
 
 		System.out.println(c);
 		if(c.esPrimo(Integer.parseInt(args[0])) == false){
-			System.out.println("Divisores de "+ args[0] + divisoresPrimos(Integer.parseInt(args[0])));
+			System.out.println("Divisores de "+ args[0] +  ": " + c.divisoresPrimos(Integer.parseInt(args[0])));
 		}
 
 		return;

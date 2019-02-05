@@ -67,7 +67,7 @@ public class Primos {
 	 */
 	private void  actualizaPrimos(int n) {
 		for (int i = max + 1; i<=n ; i++){
-			if(compruebaPrimo(i) == true){
+			if(compruebaPrimo(i)){
 				primos.add(i);
 				max = i;
 			}
@@ -107,13 +107,13 @@ public class Primos {
 
 		Primos c = new Primos();
 
-		if(c.esPrimo(Integer.parseInt(args[0])) == true)
+		if(c.esPrimo(Integer.parseInt(args[0])))
 			System.out.println("El numero "+ args[0] + " es primo");
 		else
 			System.out.println("El numero "+ args[0] + " no es primo");
 
 		System.out.println(c);
-		if(c.esPrimo(Integer.parseInt(args[0])) == false){
+		if(!c.esPrimo(Integer.parseInt(args[0]))){
 			System.out.println("Divisores de "+ args[0] +  ": " + c.divisoresPrimos(Integer.parseInt(args[0])));
 		}
 

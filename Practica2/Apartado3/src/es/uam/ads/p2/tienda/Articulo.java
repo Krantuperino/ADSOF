@@ -4,6 +4,4 @@ public abstract class Articulo {
 
     protected int idInterno;
     protected String titulo;
-
-    public abstract String toString();
 }

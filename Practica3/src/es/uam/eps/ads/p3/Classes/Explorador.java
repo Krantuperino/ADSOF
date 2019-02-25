@@ -79,7 +79,7 @@ public class Explorador{
 	/**
 	 * El explorador recorre este camino
 	 * 
-	 * @param camino 
+	 * @param camino a recorrer
 	 * 
 	 * @return true si lo ha recorrido
 	 */
@@ -121,7 +121,7 @@ public class Explorador{
 	/**
 	 * Comprueba que el explorador tenga energia para recorrer el camino
 	 * 
-	 * @param camino
+	 * @param camino a comprobar si puede recorrer
 	 * 
 	 * @return boolean
 	 */
@@ -133,7 +133,7 @@ public class Explorador{
 	/**
 	 * Comprueba si el explorador puede alojarse en posada
 	 * 
-	 * @param posada
+	 * @param posada a comprobar si se puede alojar
 
 	 * @return true por ahora
 	 */

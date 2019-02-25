@@ -27,7 +27,7 @@ public class Posada{
 	/**
 	 * Constructor de clase con energia recuperada fijo, 2
 	 * 
-	 * @param String nombre de la nueva posada
+	 * @param nombre de la nueva posada
 	 */
 	public Posada(String nombre){
 
@@ -39,8 +39,8 @@ public class Posada{
 	/**
 	 * Constructor de clase con energia recuperada variable
 	 * 
-	 * @param String nombre de la nueva posada
-	 * @param int 
+	 * @param nombre de la nueva posada
+	 * @param energia que recupera la posada
 	 */
 	public Posada(String nombre, int energia){
 		
@@ -112,7 +112,7 @@ public class Posada{
 	/**
 	 * Añade un camino a la posada
 	 * 
-	 * @param newCamino camino
+	 * @param newCamino camino nuevo
 	 * 
 	 * @return false si hay algun error
 	 */

@@ -25,9 +25,9 @@ public class Camino{
 	/**
 	 * Constructor de clase
 	 *
-	 * @param Posada origen
-	 * @param Posada destino
-	 * @param int coste de energia
+	 * @param origen Posada de origen
+	 * @param destino Posada de destino
+	 * @param coste de energia
 	 */
 	public Camino(Posada origen, Posada destino, int coste){
 
@@ -85,8 +85,8 @@ public class Camino{
 	/**
 	 * Modifica el destino y el coste
 	 *
-	 * @param Posada nuevo destino
-	 * @param int nuevo coste
+	 * @param newDestino nuevo destino
+	 * @param newCoste nuevo coste
 	 */
 	public void cambiarDestino(Posada newDestino, int newCoste){
 		

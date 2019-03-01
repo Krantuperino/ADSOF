@@ -5,32 +5,33 @@ import es.uam.eps.ads.p3.Classes.*;
 public class TesterPosada{
 
 	public static void main(String[] args) {
-		Posada p = new Posada("Palet", 10);
-		Posada v = new Posada("Violet");
-		Posada c = new Posada("Celurean", 5);
-		Camino c1 = new Camino(p, v, 3);
-		Camino c2 = new Camino(p, c, 5);
-		Camino c3 = new Camino(v, c, 2);
+		Posada paleta = new Posada("Palet", 10);
+		Posada violeta = new Posada("Violet");
+		Posada ceruleo = new Posada("Cerulean", 5);
+		Camino camino1 = new Camino(paleta, violeta, 3);
+		Camino camino2 = new Camino(paleta, ceruleo, 5);
+		Camino camino3 = new Camino(violeta, ceruleo, 2);
 
 		try{
-			p.addCamino(c1);
-			p.addCamino(c2);
-			p.addCamino(c3);
-			v.addCamino(c3);
+			paleta.addCamino(camino1);
+			paleta.addCamino(camino2);
+			paleta.addCamino(camino3);
+			violeta.addCamino(camino3);
 		}
 		catch(Exception e){
 			System.out.println("\033[31;1mError\033[0m");
+			return;
 		}
 
-		System.out.println("\033[32;1mOK\033[0m Everything generated correctly");
+		System.out.println("\033[32;1mOK\033[0m Everything generated correctly \n");
 
 		//Comprobamos que se imprimen bien
-		System.out.println("Num caminos " + p.getNumCaminos() + " Posada 1 --> " + p);//Dos caminos
-		System.out.println("Num caminos " + v.getNumCaminos() + " Posada 2 --> " + v);//Un camino
-		System.out.println("Num caminos " + c.getNumCaminos() + " Posada 3 --> " + c);//Ningun camino
+		System.out.println("Num caminos: " + paleta.getNumCaminos() + "| Posada 1 --> " + paleta);//Dos caminos
+		System.out.println("\nNum caminos: " + violeta.getNumCaminos() + "| Posada 2 --> " + violeta);//Un camino
+		System.out.println("\nNum caminos: " + ceruleo.getNumCaminos() + "| Posada 3 --> " + ceruleo);//Ningun camino
 
 		//Comprobamos getCamino
-		System.out.println(p.getCamino(1));
-		System.out.println(p.getCamino(v));
+		System.out.println("\n" + paleta.getCamino(1));
+		System.out.println("\n" + paleta.getCamino(violeta));
 	}
 }

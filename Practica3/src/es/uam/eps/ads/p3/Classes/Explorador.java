@@ -111,7 +111,8 @@ public class Explorador{
 		Boolean flag = true;
 
 		for(Posada posada : posadas){
-			if(!recorre(this.lugarActual.getCamino(posada)))
+			Camino camino = this.lugarActual.getCamino(posada);
+			if(camino == null || !recorre(camino))
 				flag = false;
 		}
 		

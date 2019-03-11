@@ -9,6 +9,16 @@ import java.util.ArrayList;
  */
 public class Posada{
 
+	public enum LightLevel{
+		DIABOLICA,
+		NEGRA,
+		TENEBROSA,
+		GRIS,
+		CLARA,
+		BLANCA,
+		DIVINA;
+	}
+
 	/**
 	 * Energia que recuperas al descansar aqui.
 	 */

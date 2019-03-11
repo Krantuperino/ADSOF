@@ -177,16 +177,16 @@ public class Explorador{
 	 */
 	private Boolean puedeAlojarseEn(Posada posada){
 
-	LightLevel light = posada.getLight();
+	Posada.LightLevel light = posada.getLight();
 
 		switch(this.mage){
 			case HADA:
-				if(light.ordinal() > LightLevel.GRIS.ordinal())
+				if(light.ordinal() > Posada.LightLevel.GRIS.ordinal())
 					return true;
 				break;
 			case HECHICERO:
-				if(light.ordinal() < LightLevel.GRIS.ordinal() ||
-				light.ordinal() < this.magePower + LightLevel.TENEBROSA.ordinal())
+				if(light.ordinal() < Posada.LightLevel.GRIS.ordinal() ||
+				light.ordinal() < this.magePower + Posada.LightLevel.TENEBROSA.ordinal())
 					return true;
 				break;
 			default:

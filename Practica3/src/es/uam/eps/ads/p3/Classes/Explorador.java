@@ -8,6 +8,15 @@ package es.uam.eps.ads.p3.Classes;
 public class Explorador{
 
 	/**
+	 * Tipo de mago enumeracion
+	 */
+	private enum MageType{
+		NONE,
+		HECHICERO,
+		HADA
+	}
+
+	/**
 	 * Nombre del explorador
 	 */
 	private String nombre;
@@ -23,17 +32,41 @@ public class Explorador{
 	private Posada lugarActual;
 
 	/**
-	 * Constructor de clase
+	 * Que tipo de mago es
+	 */
+	private MageType mage;
+
+	/**
+	 * Cuanto poder tiene un mago
+	 */
+	private int magePower;
+
+	/**
+	 * Constructor de clase para no magos
 	 * 
 	 * @param nombre Como se llama nuestro explorador
 	 * @param energia Energia con la que comienza
 	 * @param start Desde donde comienza la aventura
 	 */
 	public Explorador(String nombre, int energia, Posada start){
-		
+		this(nombre, energia, start, MageType.NONE, 0);
+	}
+
+	/**
+	 * Constructor de clase para magos
+	 * 
+	 * @param nombre del mago
+	 * @param energia inicial del mago
+	 * @param start Podada de comienzo
+	 * @param mage tipo de mago
+	 * @param magePower nivel de poder del mago
+	 */
+	public Explorador(String nombre, int energia, Posada start, MageType mage, int magePower){
 		this.nombre = nombre;
 		this.stamina = energia;
 		this.lugarActual = start;
+		this.mage = mage;
+		this.magePower = magePower;
 	}
 
 	/**
@@ -127,6 +160,10 @@ public class Explorador{
 	 * @return boolean
 	 */
 	private Boolean puedeRecorrerCamino(Camino camino){
+
+		if(camino.esTrampa() && this.mage != MageType.NONE){
+			return false;
+		}
 		
 		return this.stamina >= camino.costeReal();
 	}
@@ -139,8 +176,24 @@ public class Explorador{
 	 * @return true por ahora
 	 */
 	private Boolean puedeAlojarseEn(Posada posada){
+
+	LightLevel light = posada.getLight();
+
+		switch(this.mage){
+			case HADA:
+				if(light.ordinal() > LightLevel.GRIS.ordinal())
+					return true;
+				break;
+			case HECHICERO:
+				if(light.ordinal() < LightLevel.GRIS.ordinal() ||
+				light.ordinal() < this.magePower + LightLevel.TENEBROSA.ordinal())
+					return true;
+				break;
+			default:
+				return true;
+		}
 		
-		return true;
+		return false;
 	}
 	
 }

@@ -25,27 +25,42 @@ public class Posada{
 	private ArrayList<Camino> caminos;
 
 	/**
-	 * Constructor de clase con energia recuperada fijo, 2
+	 * Nivel de luz
+	 */
+	private LightLevel light;
+
+	/**
+	 * Constructor de clase con energia recuperada fijo, 2 y luz BLANCA
 	 * 
 	 * @param nombre de la nueva posada
 	 */
 	public Posada(String nombre){
 
-		this.nombre = nombre;
-		this.energiaRecup = 2;
-		this.caminos = new ArrayList<Camino>();
+		this(nombre, 2);
 	}
 
 	/**
-	 * Constructor de clase con energia recuperada variable
+	 * Constructor de clase con energia recuperada variable y luz BLANCA
 	 * 
 	 * @param nombre de la nueva posada
 	 * @param energia que recupera la posada
 	 */
 	public Posada(String nombre, int energia){
+		this(nombre, energia, LightLevel.BLANCA);
+	}
+
+	/**
+	 * Constructor de clase con energia variable y luz variable
+	 * 
+	 * @param nombre de la nueva posada
+	 * @param energia que recupera en la posada
+	 * @param light que hay en la posada
+	 */
+	public Posada(String nombre, int energia, LightLevel light){
 		
 		this.nombre = nombre;
 		this.energiaRecup = energia;
+		this.light = light;
 		this.caminos = new ArrayList<Camino>();
 	}
 
@@ -66,6 +81,10 @@ public class Posada{
 	 */
 	public String getNombre(){
 		return this.nombre;
+	}
+
+	public LightLevel getLight(){
+		return this.light;
 	}
 
 	/**
@@ -124,4 +143,8 @@ public class Posada{
 		this.caminos.add(newCamino);
 		return true;
 	}
+
+	public void cambiarLuz(LightLevel light){
+		this.light = light;
+	} 
 }

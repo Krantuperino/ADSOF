@@ -4,9 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.util.ArrayList;
-
-import es.uam.eps.ads.p3.Classes.Mago.MageType;
-
 /**
  * Clase que inicializa las posadas, los caminos y al explorador y ejecuta la funcion recorre
  * 
@@ -187,7 +184,7 @@ public class Simulacion{
 		FileReader fr = new FileReader(this.fileExplorador);
 		BufferedReader br = new BufferedReader(fr);
 		String sCurrentLine;
-		Mago.MageType mage;
+		Mago mage = new Mago("Test", 12, this.getPosada("A"), 2);
 
 		while((sCurrentLine = br.readLine()) != null){
 			String[] array = sCurrentLine.split(" ");
@@ -200,12 +197,12 @@ public class Simulacion{
 					int power = Integer.parseInt(array[4]);
 					switch(array[3]){
 						case "HECHICERO":
-							mage = MageType.HECHICERO;
-							this.exploradores.add(new Mago(array[0], energia, start, mage, power));
+							Mago.Hechicero y = mage.new Hechicero(array[0], energia, start, power);
+							this.exploradores.add(y);
 							break;
 						case "HADA":
-							mage = MageType.HADA;
-							this.exploradores.add(new Mago(array[0], energia, start, mage, power));
+							Mago.Hada x = mage.new Hada(array[0], energia, start, power);
+							this.exploradores.add(x);
 							break;
 						default:
 							System.out.println("No es un mago valido, creando explorador normal");

@@ -36,6 +36,7 @@ public class Mago extends Explorador {
 		this.magePower = magePower;
 	}
 
+	@Override
 	public Boolean puedeRecorrerCamino(Camino camino){
 	
 		if(camino.esTrampa())
@@ -44,6 +45,7 @@ public class Mago extends Explorador {
 		return this.getStamina() >= camino.costeReal();
 	}
 
+	@Override
 	public Boolean puedeAlojarseEn(Posada posada){
 		Posada.LightLevel light = posada.getLight();
 
@@ -62,26 +64,4 @@ public class Mago extends Explorador {
 		return false;
 	}
 
-	/**
-	 * El explorador recorre este camino
-	 * 
-	 * @param camino a recorrer
-	 * 
-	 * @return true si lo ha recorrido
-	 */
-	public Boolean recorre(Camino camino){
-
-		Posada destino = camino.getDestino();
-
-		if(this.puedeRecorrerCamino(camino) && this.puedeAlojarseEn(destino) && 
-			this.getLugar().getCamino(destino) == camino){
-			
-			this.stamina -=  camino.costeReal(); 
-			this.stamina += destino.getEnergia();
-			this.lugarActual = camino.getDestino();
-			return true;
-		}
-
-		return false;
-	}
 }

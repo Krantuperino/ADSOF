@@ -126,7 +126,7 @@ public class Explorador{
 	 * 
 	 * @return boolean
 	 */
-	private Boolean puedeRecorrerCamino(Camino camino){
+	public Boolean puedeRecorrerCamino(Camino camino){
 		
 		return this.stamina >= camino.costeReal();
 	}
@@ -138,7 +138,7 @@ public class Explorador{
 
 	 * @return true por ahora
 	 */
-	private Boolean puedeAlojarseEn(Posada posada){
+	public Boolean puedeAlojarseEn(Posada posada){
 		
 		return true;
 	}

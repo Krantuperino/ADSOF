@@ -75,8 +75,6 @@ public class Camino{
 	/**
 	 * Redefinicion de toString
 	 * 
-	 * 
-	 * 
 	 * @return String
 	 */
 	@Override

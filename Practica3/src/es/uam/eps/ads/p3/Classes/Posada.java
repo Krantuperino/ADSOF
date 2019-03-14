@@ -135,7 +135,7 @@ public class Posada{
 	}
 
 	public String toString(){
-		return this.nombre + "(" + this.energiaRecup + ") " + this.caminos;
+		return this.nombre + "(" + this.energiaRecup + ") Luz " + this.light + " ->" + this.caminos;
 	}
 	
 	/**

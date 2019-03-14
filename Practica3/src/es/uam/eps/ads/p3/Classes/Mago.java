@@ -5,7 +5,7 @@ public class Mago extends Explorador {
 	/**
 	 * Tipo de mago enumeracion
 	 */
-	private enum MageType{
+	public enum MageType{
 		HECHICERO,
 		HADA
 	}
@@ -57,6 +57,29 @@ public class Mago extends Explorador {
 				light.ordinal() < this.magePower + Posada.LightLevel.TENEBROSA.ordinal())
 					return true;
 				break;
+		}
+
+		return false;
+	}
+
+	/**
+	 * El explorador recorre este camino
+	 * 
+	 * @param camino a recorrer
+	 * 
+	 * @return true si lo ha recorrido
+	 */
+	public Boolean recorre(Camino camino){
+
+		Posada destino = camino.getDestino();
+
+		if(this.puedeRecorrerCamino(camino) && this.puedeAlojarseEn(destino) && 
+			this.getLugar().getCamino(destino) == camino){
+			
+			this.stamina -=  camino.costeReal(); 
+			this.stamina += destino.getEnergia();
+			this.lugarActual = camino.getDestino();
+			return true;
 		}
 
 		return false;

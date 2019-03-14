@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 
-import es.uam.eps.ads.p3.Classes.Posada.LightLevel;
-
 /**
  * Clase que inicializa las posadas, los caminos y al explorador y ejecuta la funcion recorre
  * 
@@ -187,6 +185,7 @@ public class Simulacion{
 		FileReader fr = new FileReader(this.fileExplorador);
 		BufferedReader br = new BufferedReader(fr);
 		String sCurrentLine;
+		Mago.MageType mage;
 
 		while((sCurrentLine = br.readLine()) != null){
 			String[] array = sCurrentLine.split(" ");
@@ -195,8 +194,24 @@ public class Simulacion{
 				
 				int energia = Integer.parseInt(array[1]);
 				Posada start = this.getPosada(array[2]);
-
-				this.exploradores.add(new Explorador(array[0], energia, start));
+				if(array.length == 5){
+					int power = Integer.parseInt(array[4]);
+					switch(array[3]){
+						case "HECHICERO":
+							mage = Mago.MageType.HECHICERO;
+							this.exploradores.add(new Mago(array[0], energia, start, mage, power));
+							break;
+						case "HADA":
+							mage = Mago.MageType.HADA;
+							this.exploradores.add(new Mago(array[0], energia, start, mage, power));
+							break;
+						default:
+							System.out.println("No es un mago valido, creando explorador normal");
+							this.exploradores.add(new Explorador(array[0], energia, start));
+					}
+				}
+				else
+					this.exploradores.add(new Explorador(array[0], energia, start));
 			}
 			else{
 
@@ -207,6 +222,8 @@ public class Simulacion{
 				}
 				Posada posada = this.getPosada(array[1]);
 				Camino camino = explorador.getLugar().getCamino(posada);
+
+				System.out.println(posada);
 
 				if(camino != null && explorador.recorre(camino)){
 					System.out.println(explorador);

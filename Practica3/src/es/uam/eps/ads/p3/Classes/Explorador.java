@@ -15,12 +15,12 @@ public class Explorador{
 	/**
 	 * Cantidad de energia disponible
 	 */
-	private int stamina;
+	protected int stamina;
 
 	/**
 	 * Posada donde se encuentra el explorador
 	 */
-	private Posada lugarActual;
+	protected Posada lugarActual;
 
 	/**
 	 * Constructor de clase

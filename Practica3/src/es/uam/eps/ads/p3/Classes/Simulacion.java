@@ -223,8 +223,6 @@ public class Simulacion{
 				Posada posada = this.getPosada(array[1]);
 				Camino camino = explorador.getLugar().getCamino(posada);
 
-				System.out.println(posada);
-
 				if(camino != null && explorador.recorre(camino)){
 					System.out.println(explorador);
 				}

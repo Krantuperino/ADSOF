@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 
+import es.uam.eps.ads.p3.Classes.Posada.LightLevel;
+
 /**
  * Clase que inicializa las posadas, los caminos y al explorador y ejecuta la funcion recorre
  * 
@@ -35,9 +37,9 @@ public class Simulacion{
 	private String fileExplorador;
 
 	/**
-	 * Nuestro intrépido aventurero
+	 * Nuestros intrépidos aventureros
 	 */
-	private Explorador explorador;
+	private ArrayList<Explorador> exploradores;
 
 	/**
 	 * Constructor de simulacion, los ficheros deben estar en la carpeta input
@@ -53,6 +55,7 @@ public class Simulacion{
 		this.fileExplorador = "es/uam/eps/ads/p3/input/" + explor;
 
 		this.posadas = new ArrayList<Posada>();
+		this.exploradores = new ArrayList<Explorador>();
 		this.readPosadas();
 
 		this.readCaminos();
@@ -68,13 +71,45 @@ public class Simulacion{
 		FileReader fr = new FileReader(this.filePosadas);
 		BufferedReader br = new BufferedReader(fr);
 		String sCurrentLine = null;
+		Posada.LightLevel light;
 	
 		while((sCurrentLine = br.readLine()) != null){
 		
 			String[] array = sCurrentLine.split(" ");
 			int energy = Integer.parseInt(array[1]);
-	
-			this.posadas.add(new Posada(array[0], energy));
+
+			if(array.length > 2){
+				switch(array[2]){
+					case "DIABOLICA":
+						light = Posada.LightLevel.DIABOLICA;
+						break;
+					case "NEGRA":
+						light = Posada.LightLevel.NEGRA;
+						break;
+					case "TENEBROSA":
+						light = Posada.LightLevel.TENEBROSA;
+						break;
+					case "GRIS":
+						light = Posada.LightLevel.GRIS;
+						break;
+					case "CLARA":
+						light = Posada.LightLevel.CLARA;
+						break;
+					case "BLANCA":
+						light = Posada.LightLevel.BLANCA;
+						break;
+					case "DIVINA":
+						light = Posada.LightLevel.DIVINA;
+						break;
+					default:
+						System.out.println("No es un nivel de luz aceptable. Colocando en BLANCA");
+						light = Posada.LightLevel.BLANCA;
+				}
+
+				this.posadas.add(new Posada(array[0], energy, light));
+			}
+			else
+				this.posadas.add(new Posada(array[0], energy));
 		}
 
 		if(br != null)
@@ -132,28 +167,48 @@ public class Simulacion{
 			fr.close();
 	}
 
+	private Explorador getExplorador(String name){
+		
+		for(Explorador explorador : this.exploradores){
+			if(explorador.getNombre().equals(name))
+				return explorador;
+		}
+
+		return null;
+	}
+
 	public void readExplorer()throws IOException{
 
 		FileReader fr = new FileReader(this.fileExplorador);
 		BufferedReader br = new BufferedReader(fr);
 		String sCurrentLine;
 
-		sCurrentLine = br.readLine();
-		String[] array = sCurrentLine.split(" ", 3);
-		int energia = Integer.parseInt(array[1]);
-		Posada start = this.getPosada(array[2]);
-
-		this.explorador = new Explorador(array[0], energia, start);
-
 		while((sCurrentLine = br.readLine()) != null){
-			Posada posada = this.getPosada(sCurrentLine);
-			Camino camino = this.explorador.getLugar().getCamino(posada);
+			String[] array = sCurrentLine.split(" ");
 
-			if(this.explorador.recorre(camino)){
-				System.out.println(explorador);
+			if(array.length > 2){
+				
+				int energia = Integer.parseInt(array[1]);
+				Posada start = this.getPosada(array[2]);
+
+				this.exploradores.add(new Explorador(array[0], energia, start));
 			}
 			else{
-				System.out.println("Could not move");
+
+				Explorador explorador = getExplorador(array[0]);
+				if(explorador == null){
+					System.out.println("Explorer doesnt exist");
+					return;
+				}
+				Posada posada = this.getPosada(array[1]);
+				Camino camino = explorador.getLugar().getCamino(posada);
+
+				if(camino != null && explorador.recorre(camino)){
+					System.out.println(explorador);
+				}
+				else{
+					System.out.println(explorador.getNombre() + " no puede llegar ahi");
+				}
 			}
 		}
 

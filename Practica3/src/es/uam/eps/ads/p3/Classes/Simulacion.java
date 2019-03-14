@@ -148,15 +148,20 @@ public class Simulacion{
 	
 		while((sCurrentLine = br.readLine()) != null){
 
-			String[] array = sCurrentLine.split(" ", 3);
+			String[] array = sCurrentLine.split(" ");
 			int coste = Integer.parseInt(array[2]);
 
 			origen = this.getPosada(array[0]);
 			destino = this.getPosada(array[1]);
-			
-			Camino camino = new Camino(origen, destino, coste);
 
-			origen.addCamino(camino);
+			if(array.length == 5){
+				float costeExtra = Float.parseFloat(array[3]);
+				float returnProb = Float.parseFloat(array[4]);
+
+				origen.addCamino(new Trampa(origen, destino, coste, costeExtra, returnProb));
+			}
+			else
+				origen.addCamino(new Camino(origen, destino, coste));
 
 		}
 		

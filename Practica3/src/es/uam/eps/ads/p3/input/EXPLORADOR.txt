@@ -1,7 +1,9 @@
 Maria 18 A
 Maria B
-Juan 26 B
+Juan 30 B
 Maria D
-Juan C
 Maria F
 Juan D
+Pablo 28 C
+Pablo E
+Pablo F 

@@ -23,16 +23,6 @@ public class Camino{
 	private int costeEnergia;
 
 	/**
-	 * Coste extra, si no es 0.0 el camino es trampa
-	 */
-	private float costeExtra;
-
-	/**
-	 * Probabilidad de que vuelva al origen, si no es 0.0 el camino es trampa
-	 */
-	private float returnProb;
-
-	/**
 	 * Constructor de clase basico
 	 *
 	 * @param origen Posada de origen
@@ -48,22 +38,6 @@ public class Camino{
 		if(coste <= 0)
 			this.costeEnergia = 1;
 
-	}
-
-	/**
-	 * Constructor de caminos trampa
-	 * 
-	 * @param origen Posada de origen
-	 * @param destino Posada de destino
-	 * @param coste de energia
-	 * @param extraCost coste extra que tienen los caminos trampa
-	 * @param returnProb probabilidad de que los caminos te devuelvan al mismo sitio
-	 */
-	public Camino(Posada origen, Posada destino, int coste, float extraCost, float returnProb) {
-
-		this(origen, destino, coste);
-		this.costeExtra = extraCost;
-		this.returnProb = returnProb;
 	}
 
 	/**
@@ -84,9 +58,6 @@ public class Camino{
 	 */
 	public Posada getDestino(){
 
-		if(Math.random() < this.returnProb)
-			return this.origen;
-		
 		return this.destino;
 	}
 
@@ -135,11 +106,8 @@ public class Camino{
 	 * @return 0 si no es trampa, el coste especial si lo es
 	 */
 	public float costeEspecial(){
-		
-		if(this.costeExtra != 0.0)
-			return this.costeExtra * this.costeEnergia;
-		else
-			return 0;
+
+		return 0;
 	}
 
 	/**
@@ -159,9 +127,6 @@ public class Camino{
 	 */
 	public Boolean esTrampa(){
 		
-		if(this.costeExtra != 0.0 || this.returnProb != 0.0)
-			return true;
-			
 		return false;
 	}
 }

@@ -56,12 +56,18 @@ public class Mago extends Explorador {
 		@Override
 		public Boolean puedeAlojarseEn(Posada posada){
 
+			posada.llamar(this);
 			Posada.LightLevel light = posada.getLight();
 
 			if(light.ordinal() < Posada.LightLevel.GRIS.ordinal() ||
 				light.ordinal() < this.getMagePower() + Posada.LightLevel.TENEBROSA.ordinal())
 					return true;
 				return false;
+		}
+
+		@Override
+		public String tipoDeMago(){
+			return "HECHICERO";
 		}
 	}
 
@@ -74,12 +80,18 @@ public class Mago extends Explorador {
 		@Override
 		public Boolean puedeAlojarseEn(Posada posada){
 
+			posada.llamar(this);
 			Posada.LightLevel light = posada.getLight();
 
 			if(light.ordinal() > Posada.LightLevel.GRIS.ordinal())
 				return true;
 			
 				return false;
+		}
+
+		@Override
+		public String tipoDeMago(){
+			return "HADA";
 		}
 	}
 }

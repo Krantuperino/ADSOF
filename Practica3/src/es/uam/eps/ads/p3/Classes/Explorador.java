@@ -90,9 +90,11 @@ public class Explorador{
 		if(this.puedeRecorrerCamino(camino) && this.puedeAlojarseEn(destino) && 
 			this.lugarActual.getCamino(destino) == camino){
 			
+			this.lugarActual.bookOut(this);
 			this.stamina -=  camino.costeReal(); 
 			this.stamina += destino.getEnergia();
 			this.lugarActual = camino.getDestino();
+			this.lugarActual.bookIn(this);
 			return true;
 		}
 
@@ -140,7 +142,13 @@ public class Explorador{
 	 */
 	public Boolean puedeAlojarseEn(Posada posada){
 		
+		posada.llamar(this);
+
 		return true;
+	}
+
+	public String tipoDeMago(){
+		return "NONE";
 	}
 	
 }

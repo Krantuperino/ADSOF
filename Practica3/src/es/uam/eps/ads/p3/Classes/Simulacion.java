@@ -184,7 +184,7 @@ public class Simulacion{
 		FileReader fr = new FileReader(this.fileExplorador);
 		BufferedReader br = new BufferedReader(fr);
 		String sCurrentLine;
-		Mago mage = new Mago("Test", 12, this.getPosada("A"), 2);
+		Mago mage = new Mago("Temp", 1, this.getPosada("A"), 1);
 
 		while((sCurrentLine = br.readLine()) != null){
 			String[] array = sCurrentLine.split(" ");

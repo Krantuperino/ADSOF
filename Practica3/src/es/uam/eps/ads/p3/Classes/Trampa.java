@@ -28,6 +28,7 @@ public class Trampa extends Camino{
 		this.returnProb = returnProb;
 	}
 
+	@Override
 	public Posada getDestino(){
 		
 		if(Math.random() < this.returnProb)
@@ -36,10 +37,12 @@ public class Trampa extends Camino{
 		return super.getDestino();
 	}
 
+	@Override
 	public float costeEspecial(){
 		return this.costeExtra * this.getCoste();
 	}
 
+	@Override
 	public Boolean esTrampa(){
 		return true;
 	}

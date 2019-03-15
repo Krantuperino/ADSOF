@@ -40,6 +40,10 @@ public class Posada{
 	private LightLevel light;
 
 	/**
+	 * Exploradores actualmente en esta posada
+	 */
+	private ArrayList<Explorador> huespedes;
+	/**
 	 * Constructor de clase con energia recuperada fijo, 2 y luz BLANCA
 	 * 
 	 * @param nombre de la nueva posada
@@ -72,6 +76,7 @@ public class Posada{
 		this.energiaRecup = energia;
 		this.light = light;
 		this.caminos = new ArrayList<Camino>();
+		this.huespedes = new ArrayList<Explorador>();
 	}
 
 	/**
@@ -156,5 +161,29 @@ public class Posada{
 
 	public void cambiarLuz(LightLevel light){
 		this.light = light;
-	} 
+	}
+
+	public void llamar(Explorador e){
+
+		switch(e.tipoDeMago()){
+			case "HECHICERO":
+				if(this.light.ordinal() >= LightLevel.GRIS.ordinal())
+					this.light = LightLevel.values()[this.light.ordinal() - 1];
+				break;
+			case "HADA":
+				if(this.light.ordinal() <= LightLevel.GRIS.ordinal())
+					this.light = LightLevel.values()[this.light.ordinal() + 1];
+				break;
+			default:
+				break;
+		}
+	}
+
+	public void bookIn(Explorador e){
+		this.huespedes.add(e);
+	}
+
+	public void bookOut(Explorador e){
+		this.huespedes.remove(e);
+	}
 }

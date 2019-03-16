@@ -12,8 +12,7 @@ public class Mago extends Explorador {
 	 * 
 	 * @param nombre del mago
 	 * @param energia inicial del mago
-	 * @param start Podada de comienzo
-	 * @param mage tipo de mago
+	 * @param start Posada de comienzo
 	 * @param magePower nivel de poder del mago
 	 */
 	public Mago(String nombre, int energia, Posada start, int magePower){
@@ -45,41 +44,5 @@ public class Mago extends Explorador {
 			return false;
 		
 		return this.getStamina() >= camino.costeReal();
-	}
-
-	public class Hechicero extends Mago{
-		
-		public Hechicero(String nombre, int energia, Posada start, int magePower){
-			super(nombre, energia, start, magePower);
-		}
-
-		@Override
-		public Boolean puedeAlojarseEn(Posada posada){
-
-			Posada.LightLevel light = posada.getLight();
-
-			if(light.ordinal() < Posada.LightLevel.GRIS.ordinal() ||
-				light.ordinal() < this.getMagePower() + Posada.LightLevel.TENEBROSA.ordinal())
-					return true;
-				return false;
-		}
-	}
-
-	public class Hada extends Mago{
-
-		public Hada(String nombre,  int energia, Posada start, int magePower){
-			super(nombre, energia, start, magePower);
-		}
-
-		@Override
-		public Boolean puedeAlojarseEn(Posada posada){
-
-			Posada.LightLevel light = posada.getLight();
-
-			if(light.ordinal() > Posada.LightLevel.GRIS.ordinal())
-				return true;
-			
-				return false;
-		}
 	}
 }

@@ -43,4 +43,5 @@ public class Trampa extends Camino{
 	public Boolean esTrampa(){
 		return true;
 	}
+	
 }

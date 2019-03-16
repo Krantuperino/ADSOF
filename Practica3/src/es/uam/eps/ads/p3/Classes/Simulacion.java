@@ -197,11 +197,11 @@ public class Simulacion{
 					int power = Integer.parseInt(array[4]);
 					switch(array[3]){
 						case "HECHICERO":
-							Mago.Hechicero y = mage.new Hechicero(array[0], energia, start, power);
+							Hechicero y = new Hechicero(array[0], energia, start, power);
 							this.exploradores.add(y);
 							break;
 						case "HADA":
-							Mago.Hada x = mage.new Hada(array[0], energia, start, power);
+							Hada x = new Hada(array[0], energia, start, power);
 							this.exploradores.add(x);
 							break;
 						default:

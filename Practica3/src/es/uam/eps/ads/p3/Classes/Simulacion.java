@@ -62,6 +62,8 @@ public class Simulacion{
 
 	/**
 	 * Lee el archivo de posadas y añade todas al arraylist posadas
+	 * 
+	 * @throws IOException
 	 */
 	public void readPosadas()throws IOException{
 
@@ -109,11 +111,8 @@ public class Simulacion{
 				this.posadas.add(new Posada(array[0], energy));
 		}
 
-		if(br != null)
-			br.close();
-		
-		if(fr != null)
-			fr.close();
+		br.close();		
+		fr.close();
 	}
 
 	/**
@@ -135,6 +134,8 @@ public class Simulacion{
 
 	/**
 	 * Lee el archivo de caminos y crea y los añade a sus respectivas posadas
+	 * 
+	 * @throws IOException
 	 */
 	public void readCaminos()throws IOException{
 		FileReader fr = new FileReader(this.fileCaminos);
@@ -162,13 +163,16 @@ public class Simulacion{
 
 		}
 		
-		if(br != null)
-			br.close();
-		
-		if(fr != null)
-			fr.close();
+		br.close();
+		fr.close();
 	}
 
+	/**
+	 * Getter para un explorador dado su nombre
+	 * 
+	 * @param name del explorador
+	 * @return Explorador
+	 */
 	private Explorador getExplorador(String name){
 		
 		for(Explorador explorador : this.exploradores){
@@ -179,12 +183,16 @@ public class Simulacion{
 		return null;
 	}
 
+	/**
+	 * Lee el fichero de exploradores
+	 * 
+	 * @throws IOException
+	 */
 	public void readExplorer()throws IOException{
 
 		FileReader fr = new FileReader(this.fileExplorador);
 		BufferedReader br = new BufferedReader(fr);
 		String sCurrentLine;
-		Mago mage = new Mago("Temp", 1, this.getPosada("A"), 1);
 
 		while((sCurrentLine = br.readLine()) != null){
 			String[] array = sCurrentLine.split(" ");
@@ -231,10 +239,7 @@ public class Simulacion{
 			}
 		}
 
-		if(br != null)
 		br.close();
-	
-		if(fr != null)
 		fr.close();
 	}
 

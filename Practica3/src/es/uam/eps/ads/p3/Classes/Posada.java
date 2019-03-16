@@ -159,10 +159,21 @@ public class Posada{
 		return true;
 	}
 
+	/**
+	 * Setter para la luz
+	 * 
+	 * @param light nuevo nivel de luz
+	 */
 	public void cambiarLuz(LightLevel light){
 		this.light = light;
 	}
 
+	/**
+	 * E Llama a la puerta y si necesita subir o bajar el nivel de luz la posada
+	 * lo sube o lo baja un solo nivel
+	 * 
+	 * @param e explorador que llama
+	 */
 	public void llamar(Explorador e){
 
 		switch(e.tipoDeMago()){
@@ -179,10 +190,20 @@ public class Posada{
 		}
 	}
 
+	/**
+	 * Añade a la lista de huespedes al explorador E
+	 * 
+	 * @param e que va a la posada
+	 */
 	public void bookIn(Explorador e){
 		this.huespedes.add(e);
 	}
 
+	/**
+	 * El explorador e sale de la lista de huespedes
+	 * 
+	 * @param e que sale de la posada
+	 */
 	public void bookOut(Explorador e){
 		this.huespedes.remove(e);
 	}

@@ -12,8 +12,7 @@ public class Mago extends Explorador {
 	 * 
 	 * @param nombre del mago
 	 * @param energia inicial del mago
-	 * @param start Podada de comienzo
-	 * @param mage tipo de mago
+	 * @param start Posada de comienzo
 	 * @param magePower nivel de poder del mago
 	 */
 	public Mago(String nombre, int energia, Posada start, int magePower){
@@ -46,6 +45,7 @@ public class Mago extends Explorador {
 		
 		return this.getStamina() >= camino.costeReal();
 	}
+<<<<<<< HEAD
 
 	public class Hechicero extends Mago{
 		
@@ -94,4 +94,6 @@ public class Mago extends Explorador {
 			return "HADA";
 		}
 	}
+=======
+>>>>>>> 33ffeceface9b35174d64ed1dc7d80d343957d3d
 }

@@ -1,6 +1,7 @@
 package es.uam.eps.ads.p3.Tester;
 
 import es.uam.eps.ads.p3.Classes.*;
+import es.uam.eps.ads.p3.Classes.Posada.LightLevel;
 
 public class TesterPosada{
 
@@ -33,5 +34,20 @@ public class TesterPosada{
 		//Comprobamos getCamino
 		System.out.println("\n" + paleta.getCamino(1));
 		System.out.println("\n" + paleta.getCamino(violeta));
+		
+		//Comprobamos funciones de luz de posada (get y cambio)
+		System.out.println("Luz de la posada ceruleo de serie --> " + ceruleo.getLight());
+		
+		try {
+			ceruleo.cambiarLuz(LightLevel.DIABOLICA);
+		}
+		catch(Exception e){
+			System.out.println("\033[31;1mError\033[0m");
+			return;
+		}
+		
+		System.out.println("\033[32;1mOK\033[0m CambiarLuz went well \n");
+		System.out.println("Luz de la posada ceruleo tras el cambio --> " + ceruleo.getLight());
+		
 	}
 }

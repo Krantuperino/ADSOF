@@ -9,6 +9,9 @@ import java.util.ArrayList;
  */
 public class Posada{
 
+	/**
+	 * Nivel de luz que puede tener una posada
+	 */
 	public enum LightLevel{
 		DIABOLICA,
 		NEGRA,

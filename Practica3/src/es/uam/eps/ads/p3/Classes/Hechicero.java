@@ -1,5 +1,8 @@
 package es.uam.eps.ads.p3.Classes;
 
+/**
+ * Clase de magos de tipo hechicero, que son exploradores
+ */
 public class Hechicero extends Mago{
 		
 		/**
@@ -15,7 +18,11 @@ public class Hechicero extends Mago{
 		}
 
 		/**
+		 * Comprueba si el hechicero puede alojarse en posada
 		 * 
+		 * @param posada donde va a alojarse
+		 * 
+		 * @return boolean
 		 */
 		@Override
 		public Boolean puedeAlojarseEn(Posada posada){

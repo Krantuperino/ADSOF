@@ -147,6 +147,11 @@ public class Explorador{
 		return true;
 	}
 
+	/**
+	 * Te marca que tipo de mago es
+	 * 
+	 * @return Un string en mayusculas del tipo de mago que es
+	 */
 	public String tipoDeMago(){
 		return "NONE";
 	}

@@ -44,6 +44,8 @@ public class Simulacion{
 	 * @param camino archivo con caminos
 	 * @param posad archivo con posadas
 	 * @param explor archivo con el explorador y el camino a recorrer
+	 * 
+	 * @throws IOException in reading files
 	 */
 	public Simulacion(String posad, String camino, String explor)throws IOException{
 
@@ -63,7 +65,7 @@ public class Simulacion{
 	/**
 	 * Lee el archivo de posadas y añade todas al arraylist posadas
 	 * 
-	 * @throws IOException
+	 * @throws IOException in reading files
 	 */
 	public void readPosadas()throws IOException{
 
@@ -119,7 +121,7 @@ public class Simulacion{
 	 * Recoge una posada del arraylist de posadas por su nombre
 	 * 
 	 * @param name nombre de la posada
-	 * @return posada
+	 * @return posada in reading files
 	 */
 	private Posada getPosada(String name){
 
@@ -135,7 +137,7 @@ public class Simulacion{
 	/**
 	 * Lee el archivo de caminos y crea y los añade a sus respectivas posadas
 	 * 
-	 * @throws IOException
+	 * @throws IOException in reading files
 	 */
 	public void readCaminos()throws IOException{
 		FileReader fr = new FileReader(this.fileCaminos);
@@ -184,9 +186,9 @@ public class Simulacion{
 	}
 
 	/**
-	 * Lee el fichero de exploradores
+	 * Lee el fichero de exploradores, los inicializa y recorre sus caminos
 	 * 
-	 * @throws IOException
+	 * @throws IOException in reading files
 	 */
 	public void readExplorer()throws IOException{
 

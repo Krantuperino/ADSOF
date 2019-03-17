@@ -1,14 +1,17 @@
 package es.uam.eps.ads.p3.Classes;
 
+/**
+ * Clase para los caminos trampa
+ */
 public class Trampa extends Camino{
 
 	/**
-	 * Coste extra, si no es 0.0 el camino es trampa
+	 * Coste extra
 	 */
 	private float costeExtra;
 
 	/**
-	 * Probabilidad de que vuelva al origen, si no es 0.0 el camino es trampa
+	 * Probabilidad de que vuelva al origen
 	 */
 	private float returnProb;
 
@@ -28,6 +31,11 @@ public class Trampa extends Camino{
 		this.returnProb = returnProb;
 	}
 
+	/**
+	 * Getter del destino para que a veces te devuelva al inicio
+	 * 
+	 * @return destino
+	 */
 	@Override
 	public Posada getDestino(){
 		
@@ -37,11 +45,21 @@ public class Trampa extends Camino{
 		return super.getDestino();
 	}
 
+	/**
+	 * Calcula el coste especial
+	 * 
+	 * @return costeExtra * coste
+	 */
 	@Override
 	public float costeEspecial(){
 		return this.costeExtra * this.getCoste();
 	}
 
+	/**
+	 * Devuelve true
+	 * 
+	 * @return true
+	 */
 	@Override
 	public Boolean esTrampa(){
 		return true;

@@ -1,5 +1,8 @@
 package es.uam.eps.ads.p3.Classes;
 
+/**
+ * Clase general para todos los exploradores de tipo mago
+ */
 public class Mago extends Explorador {
 
 	/**

@@ -49,9 +49,9 @@ public class Simulacion{
 	 */
 	public Simulacion(String posad, String camino, String explor)throws IOException{
 
-		this.fileCaminos = "es/uam/eps/ads/p3/input/" + camino;
-		this.filePosadas = "es/uam/eps/ads/p3/input/" + posad;
-		this.fileExplorador = "es/uam/eps/ads/p3/input/" + explor;
+		this.fileCaminos = "../txt/" + camino;
+		this.filePosadas = "../txt/" + posad;
+		this.fileExplorador = "../txt/" + explor;
 
 		this.posadas = new ArrayList<Posada>();
 		this.exploradores = new ArrayList<Explorador>();

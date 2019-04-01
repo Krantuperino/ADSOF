@@ -1,6 +1,7 @@
 package es.uam.eps.ads.p4.Classes;
 
 import java.util.Map;
+import java.math.*;
 
 import es.uam.eps.ads.p4.Interface.Similitud;
 
@@ -40,6 +41,6 @@ public class Similitud implements Similitud {
 			denUser2 += prefU2.get(l) * prefU2.get(l);
 		}
 
-		return numerator / (denUser1 * denUser2);
+		return numerator / Math.sqrt(denUser1 * denUser2);
 	} 
 }

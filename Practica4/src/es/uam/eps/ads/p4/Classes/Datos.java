@@ -73,6 +73,10 @@ public class Datos implements ModeloDatos{
 		
 		Map<Long, Double> items = new HashMap<Long, Double>();
 
+		if(!isInIdItems(item)){
+			return null;
+		}
+
 		for(Long user : idUsuarios) {
 			items.put(item, getPreferenciasUsuario(user).get(item));
 		}
@@ -90,7 +94,7 @@ public class Datos implements ModeloDatos{
 	
 	//Otros metodos que los/las estudiantes crean oportuno
 
-	private Boolean isInIdUsuarios(Long usuario){
+	public Boolean isInIdUsuarios(Long usuario){
 
 		for(Long u : this.idUsuarios){
 			if(u == usuario)

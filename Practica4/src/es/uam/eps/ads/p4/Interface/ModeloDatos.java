@@ -18,4 +18,6 @@ public interface ModeloDatos {
 	public Set<Long> getItemsUnicos();
 	
 	//Otros metodos que los/las estudiantes crean oportuno
+
+	public Boolean isInIdUsuarios(Long user);
 }

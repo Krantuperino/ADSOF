@@ -2,7 +2,7 @@ package es.uam.eps.ads.p4.Exceptions;
 
 public class RecomendacionInvalida extends Exception {
 
-	private static final long serialVersionUID;
+	private static long serialVersionUID;			//he quitado el "final" de este atributo
 
 	public RecomendacionInvalida(long id) {
 		serialVersionUID = id;

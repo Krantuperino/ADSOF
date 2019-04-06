@@ -1,7 +1,7 @@
 package es.uam.eps.ads.p4.Interface;
 
-import es.uam.eps.ads.p4.Classes.*;
-import es.uam.eps.ads.p4.Exceptions.*;
+import es.uam.eps.ads.p4.Classes.Recomendacion;
+import es.uam.eps.ads.p4.Exceptions.RecomendacionInvalida;
 
 public interface Recomendador{
 	
